@@ -18,11 +18,22 @@ public class Light_Switch : MonoBehaviour
         toggleState(false);
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown("space"))
+        {
+            toggleState(!lightOn);
+        }
+    }
+
+    /*
     void OnMouseDown()
     {
         toggleState(!lightOn);
     }
+    */
 
+    //Toggles the light swtich sprite and global light on and off
     void toggleState(bool state)
     {
         if (state)

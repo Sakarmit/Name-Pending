@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 458172059}
   - component: {fileID: 458172058}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Light Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
