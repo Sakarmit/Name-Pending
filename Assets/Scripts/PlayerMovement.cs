@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private float verticalMovement = 0;
     
     float movementSpeed = 5f;
-    float jumpSpeed = 8f;
+    float jumpSpeed = 10f;
 
     // Start is called before the first frame update.
     void Start()

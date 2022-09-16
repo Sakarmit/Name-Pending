@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Light_Switch : MonoBehaviour
 {
+    /* -=- deprecated -=-
     public Sprite spriteLightOn;
     public Sprite spriteLightOff;
     public GameObject globalLight;
@@ -26,13 +27,6 @@ public class Light_Switch : MonoBehaviour
         }
     }
 
-    /*
-    void OnMouseDown()
-    {
-        toggleState(!lightOn);
-    }
-    */
-
     //Toggles the light swtich sprite and global light on and off
     void toggleState(bool state)
     {
@@ -49,4 +43,5 @@ public class Light_Switch : MonoBehaviour
             lightOn = false;
         }
     }
+    */
 }
