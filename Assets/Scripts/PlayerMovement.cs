@@ -13,8 +13,8 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalMovement = 0;
     private float verticalMovement = 0;
     
-    float movementSpeed = 5f;
-    float jumpSpeed = 10f;
+    float movementSpeed = 10f;
+    float jumpSpeed = 20f;
 
     // Start is called before the first frame update.
     void Start()
@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         //Gets User Inputs W/Up and S/Down
         verticalMovement = Input.GetAxis("Vertical");
 
+
     }
     void FixedUpdate()
     {
@@ -38,10 +39,17 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded() && verticalMovement > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+            rb.gravityScale = 5;
+        }
+
+        // Player Falling
+        if (rb.velocity.y < 0)
+        {
+            rb.gravityScale = 10;
         }
 
         //Player X-Axis Movement
-        if(horizontalMovement != 0)
+        if (horizontalMovement != 0)
         {
             rb.velocity = new Vector2(horizontalMovement * movementSpeed, rb.velocity.y);
         } 

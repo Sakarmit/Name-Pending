@@ -7,6 +7,6 @@ public class GameOver
 {
     public static void triggerGameOver()
     {
-        GameObject.FindWithTag("Player").GetComponent<SpriteRenderer>().enabled = false;
+        //GameObject.FindWithTag("Player").GetComponent<SpriteRenderer>().enabled = false;
     }
 }
