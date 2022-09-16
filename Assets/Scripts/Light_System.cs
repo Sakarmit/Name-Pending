@@ -12,10 +12,9 @@ public class Light_System : MonoBehaviour
     private GameObject lightBar;
 
     private float lightBarMaxSize = 23.5f;
-    private float currentLightBarPercent = 0f;
+    [SerializeField] private float currentLightBarPercent = 0f;
     public float lightBarGrowSpeed = 0.001f;
     public float lightBarDecaySpeed = 0.001f;
-
 
     void Start()
     {
@@ -53,7 +52,7 @@ public class Light_System : MonoBehaviour
 
     void updateLightBar()
     {
-        if (lightOn && currentLightBarPercent <= 1)
+        if (lightOn && currentLightBarPercent < 1)
         {
             currentLightBarPercent += lightBarGrowSpeed;
         }
@@ -61,7 +60,12 @@ public class Light_System : MonoBehaviour
         {
             currentLightBarPercent -= lightBarDecaySpeed;
         }
+        else if(currentLightBarPercent > 1)
+        {
+            GameOver.triggerGameOver();
+        }
         lightBar.transform.localScale = new Vector3(currentLightBarPercent * lightBarMaxSize, lightBar.transform.localScale.y, 1);
+        lightBar.transform.localPosition = new Vector3(lightBarMaxSize/2 - (currentLightBarPercent * lightBarMaxSize)/2, lightBar.transform.localPosition.y, lightBar.transform.localPosition.z);
 
     }
 }
