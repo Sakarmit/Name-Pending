@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private float verticalMovement = 0;
     
     float movementSpeed = 10f;
-    float jumpSpeed = 20f;
+    float jumpSpeed = 17.5f;
 
     // Start is called before the first frame update.
     void Start()
@@ -24,6 +24,14 @@ public class PlayerMovement : MonoBehaviour
         boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
     }
 
+    // Player jumping
+    void Jump()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        rb.gravityScale = 5;
+ 
+    }
+
     void Update()
     {
         //Gets User Inputs A/Left and D/Right
@@ -31,16 +39,16 @@ public class PlayerMovement : MonoBehaviour
         //Gets User Inputs W/Up and S/Down
         verticalMovement = Input.GetAxis("Vertical");
 
+        // Check for jump input
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Jump();
+        }
+
 
     }
     void FixedUpdate()
     {
-        // Player Jumping
-        if (IsGrounded() && verticalMovement > 0)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
-            rb.gravityScale = 5;
-        }
 
         // Player Falling
         if (rb.velocity.y < 0)
@@ -61,10 +69,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Uses BoxCast to Detect if Platform Layer Object is just under the player
-    private bool IsGrounded()
+    /*private bool IsGrounded()
     {
         float extraDistance = 0.1f;
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, extraDistance, platformLayerMask);
         return raycastHit.collider != null;
-    }
+    }*/
 }
