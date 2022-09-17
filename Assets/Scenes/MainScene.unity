@@ -488,7 +488,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 7.393528
+  orthographic size: 7.3172274
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -535,11 +535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1303410037}
   timeOffset: 3
-  posOffset: {x: 2, y: 1}
-  leftLimit: -4
-  rightLimit: 4
-  bottomLimit: 0
-  topLimit: 10
+  yPosOffset: 2
 --- !u!1 &543561673
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,8 +980,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119467510}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2464528, y: -5.67, z: -0.82379866}
-  m_LocalScale: {x: 34.1, y: 0.7818614, z: 1}
+  m_LocalPosition: {x: 1.63, y: -5.5, z: 0}
+  m_LocalScale: {x: 26, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2143554743}
@@ -1133,7 +1129,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303410037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2287, y: -0.7675, z: 0}
+  m_LocalPosition: {x: 6.52, y: -5.35, z: 0}
   m_LocalScale: {x: 2.658631, y: 3.7129424, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1464,6 +1460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2143554743}
+  - component: {fileID: 2143554744}
   m_Layer: 0
   m_Name: Platforms
   m_TagString: Untagged
@@ -1487,3 +1484,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2143554744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143554742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ceae663bc4a8f4683fa16212abb789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPlatform: {fileID: 1119467510}
+  platformPrefab: {fileID: 6365981179713145103, guid: 21a00ae75ede3fa42aec9324309784a7, type: 3}
+  parent: {fileID: 2143554743}

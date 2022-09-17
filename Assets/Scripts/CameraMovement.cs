@@ -6,11 +6,8 @@ public class CameraMovement : MonoBehaviour
 {
     public GameObject player;
     public float timeOffset;
-    public Vector2 posOffset;
-    public float leftLimit;
-    public float rightLimit;
-    public float bottomLimit;
-    public float topLimit;
+    public float yPosOffset;
+    private float bottomLimit;
 
 
 
@@ -27,16 +24,18 @@ public class CameraMovement : MonoBehaviour
         Vector3 startPos = transform.position;
         Vector3 endPos = player.transform.position;
 
-        endPos.x += posOffset.x;
-        endPos.y += posOffset.y;
+        endPos.y += yPosOffset;
         endPos.z = -10;
 
         transform.position = Vector3.Lerp(startPos, endPos, timeOffset * Time.deltaTime);
 
+        if(bottomLimit < transform.position.y - 2)
+            bottomLimit = transform.position.y - 2;
+
         transform.position = new Vector3
             (
-                Mathf.Clamp(transform.position.x, leftLimit, rightLimit),
-                Mathf.Clamp(transform.position.y, bottomLimit, topLimit),
+                0,
+                Mathf.Clamp(transform.position.y, bottomLimit, float.PositiveInfinity),
                 transform.position.z
             );
         
