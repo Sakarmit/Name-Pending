@@ -23,6 +23,7 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         Vector3 startPos = transform.position;
         Vector3 endPos = player.transform.position;
 
@@ -38,6 +39,7 @@ public class CameraMovement : MonoBehaviour
                 Mathf.Clamp(transform.position.y, bottomLimit, topLimit),
                 transform.position.z
             );
+        
     }
 
 }

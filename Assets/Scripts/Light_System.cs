@@ -11,7 +11,7 @@ public class Light_System : MonoBehaviour
 
     private GameObject lightBar;
 
-    private float lightBarMaxSize = 12.5f;
+    private float lightBarMaxSize = 14.8f;
     [SerializeField] private float currentLightBarPercent = 0f;
     public float lightBarGrowSpeed = 0.001f;
     public float lightBarDecaySpeed = 0.001f;
@@ -65,7 +65,7 @@ public class Light_System : MonoBehaviour
             GameOver.triggerGameOver();
         }
         lightBar.transform.localScale = new Vector3( lightBar.transform.localScale.x ,currentLightBarPercent * lightBarMaxSize, 1);
-        lightBar.transform.localPosition = new Vector3(lightBar.transform.localPosition.x, lightBarMaxSize/2 - (currentLightBarPercent * lightBarMaxSize)/2, lightBar.transform.localPosition.z);
+        lightBar.transform.localPosition = new Vector3(lightBar.transform.localPosition.x,lightBarMaxSize/2 - (currentLightBarPercent * lightBarMaxSize)/2, lightBar.transform.localPosition.z);
 
     }
 }
