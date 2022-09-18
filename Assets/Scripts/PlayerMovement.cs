@@ -17,20 +17,15 @@ public class PlayerMovement : MonoBehaviour
     float movementSpeed = 10f;
     float jumpSpeed = 17.5f;
 
+    [SerializeField] int jumpCount = 0;
+    bool shouldJump = false;
+
     // Start is called before the first frame update.
     void Start()
     {
         // set rb to the Rigidbody component on the circle
         rb = gameObject.GetComponent<Rigidbody2D>();
         boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
-    }
-
-    // Player jumping
-    void Jump()
-    {
-        rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
-        rb.gravityScale = 5;
- 
     }
 
     void Update()
@@ -40,26 +35,35 @@ public class PlayerMovement : MonoBehaviour
         //Gets User Inputs W/Up and S/Down
         verticalMovement = Input.GetAxis("Vertical");
 
-        // Check for jump input
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            Jump();
-        }
-
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(0);
         }
 
+        if (IsGrounded())
+        {
+            jumpCount = 0;
+        }
+
+        // Check for jump input
+        if (jumpCount < 2 && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
+        {
+            shouldJump = true;
+        }
         transform.rotation = Quaternion.identity;
     }
     void FixedUpdate()
     {
-
         // Player Falling
         if (rb.velocity.y < 0)
         {
             rb.gravityScale = 10;
+        }
+
+        if (shouldJump)
+        {
+            Jump();
+            shouldJump = false;
         }
 
         //Player X-Axis Movement
@@ -71,14 +75,23 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
-        
+    }
+
+    // Player jumping
+    void Jump()
+    {
+        jumpCount++;
+        rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        rb.gravityScale = 5;
+
     }
 
     //Uses BoxCast to Detect if Platform Layer Object is just under the player
-    /*private bool IsGrounded()
+    private bool IsGrounded()
     {
-        float extraDistance = 0.1f;
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, extraDistance, platformLayerMask);
+        float extraDistance = 1f;
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center + new Vector3(0, -0.27f, 0), new Vector3(0.5f, 0.05f, 0), 0f, Vector2.down, extraDistance, platformLayerMask);
+
         return raycastHit.collider != null;
-    }*/
+    }
 }
