@@ -542,7 +542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   globalLight: {fileID: 1908703395}
   currentLightBarPercent: 0
-  lightBarGrowSpeed: 0.001
+  lightBarGrowSpeed: 0.0005
   lightBarDecaySpeed: 0.001
 --- !u!114 &433133441
 MonoBehaviour:
@@ -1951,4 +1951,4 @@ MonoBehaviour:
   startingPlatform: {fileID: 1119467510}
   platformPrefab: {fileID: 6365981179713145103, guid: 21a00ae75ede3fa42aec9324309784a7, type: 3}
   parent: {fileID: 2143554743}
-  player: {fileID: 0}
+  player: {fileID: 1303410040}

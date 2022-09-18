@@ -13,7 +13,7 @@ public class Light_System : MonoBehaviour
 
     private float lightBarMaxSize = 14.8f;
     [SerializeField] private float currentLightBarPercent = 0f;
-    public float lightBarGrowSpeed = 0.001f;
+    public float  lightBarGrowSpeed = 0.0005f;
     public float lightBarDecaySpeed = 0.001f;
 
     void Start()

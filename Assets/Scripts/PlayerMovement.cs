@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-
+        transform.rotation = Quaternion.identity;
     }
     void FixedUpdate()
     {
