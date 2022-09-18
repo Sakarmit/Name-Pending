@@ -12,7 +12,7 @@ public class PlatformManager : MonoBehaviour
     [SerializeField] Transform parent;
     [SerializeField] Transform player;
 
-    int currentPlatformNumber = 0;
+    public int currentPlatformNumber = 0;
     private GameObject lowestObject;
 
     // Start is called before the first frame update
@@ -28,7 +28,7 @@ public class PlatformManager : MonoBehaviour
     void Update()
     {
         lowestObject = transform.GetChild(0).gameObject;
-        if (lowestObject.transform.localPosition.y < player.position.y - 10)
+        if (lowestObject.transform.localPosition.y < player.position.y - 4)
         {
             Destroy(lowestObject);
             createPlatform();
