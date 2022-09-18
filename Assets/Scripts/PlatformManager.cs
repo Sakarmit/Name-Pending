@@ -50,7 +50,7 @@ public class PlatformManager : MonoBehaviour
 
         do
         {
-            randomNumber = Random.Range(-10f, 9f);
+            randomNumber = Random.Range(-10f, 14f);
         } 
         while (Mathf.Abs(randomNumber - currentPlatformXPosition) < 16);
         
