@@ -32,13 +32,12 @@ public class CameraMovement : MonoBehaviour
         if(bottomLimit < transform.position.y - 2)
             bottomLimit = transform.position.y - 2;
 
-        transform.position = new Vector3
-            (
-                0,
-                Mathf.Clamp(transform.position.y, bottomLimit, float.PositiveInfinity),
-                0
-            );
+        transform.position = new ( 0, Mathf.Clamp(transform.position.y, bottomLimit, float.PositiveInfinity), 0 );
         
+        if(endPos.y < bottomLimit - 8)
+        {
+            GameOver.triggerGameOver();
+        }
     }
 
 }
