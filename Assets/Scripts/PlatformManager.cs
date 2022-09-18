@@ -13,6 +13,7 @@ public class PlatformManager : MonoBehaviour
     [SerializeField] Transform player;
 
     public int currentPlatformNumber = 0;
+    private float currentPlatformXPosition;
     private GameObject lowestObject;
 
     // Start is called before the first frame update
@@ -37,8 +38,22 @@ public class PlatformManager : MonoBehaviour
     private void createPlatform()
     {
 
-        GameObject newPlatform = Instantiate(platformPrefab, new Vector3(Random.Range(-10f, 9f), 4 * currentPlatformNumber - 1, 0), Quaternion.identity, parent);
+        GameObject newPlatform = Instantiate(platformPrefab, new Vector3(Random.Range(-10f, 9f), 4 * currentPlatformNumber - 2, 2), Quaternion.identity, parent);
         newPlatform.name = currentPlatformNumber.ToString();
+        currentPlatformXPosition = newPlatform.transform.position.x;
         currentPlatformNumber++;
+    }
+
+    float getRandomXPosition()
+    {
+        float randomNumber;
+
+        do
+        {
+            randomNumber = Random.Range(-10f, 9f);
+        } 
+        while (Mathf.Abs(randomNumber - currentPlatformXPosition) < 16);
+        
+        return randomNumber;
     }
 }

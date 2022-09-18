@@ -36,7 +36,7 @@ public class CameraMovement : MonoBehaviour
             (
                 0,
                 Mathf.Clamp(transform.position.y, bottomLimit, float.PositiveInfinity),
-                transform.position.z
+                0
             );
         
     }
