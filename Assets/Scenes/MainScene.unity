@@ -685,8 +685,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1303410037}
-  timeOffset: 3
-  yPosOffset: 2
+  bottomLimit: 0
+  additionalYIncrease: 0.002
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0

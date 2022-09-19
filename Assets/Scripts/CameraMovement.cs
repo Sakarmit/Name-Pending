@@ -5,11 +5,11 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     public GameObject player;
-    public float timeOffset;
-    public float yPosOffset;
+    private float timeOffset = 3;
+    private float yPosOffset = 2;
     private float bottomLimit;
 
-
+    public float additionalYIncrease;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +28,13 @@ public class CameraMovement : MonoBehaviour
         endPos.z = -10;
 
         transform.position = Vector3.Lerp(startPos, endPos, timeOffset * Time.deltaTime);
+        if(bottomLimit > 0)
+            bottomLimit += additionalYIncrease;
 
-        if(bottomLimit < transform.position.y - 2)
+        if (bottomLimit < transform.position.y - 2)
+        {
             bottomLimit = transform.position.y - 2;
+        }
 
         transform.position = new ( 0, Mathf.Clamp(transform.position.y, bottomLimit, float.PositiveInfinity), 0 );
         
@@ -39,5 +43,4 @@ public class CameraMovement : MonoBehaviour
             GameOver.triggerGameOver();
         }
     }
-
 }

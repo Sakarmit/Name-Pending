@@ -11,5 +11,8 @@ public static class GameOver
         playerObject = GameObject.FindWithTag("Player");
         playerObject.GetComponent<SpriteRenderer>().enabled = false;
         playerObject.GetComponent<Rigidbody2D>().simulated = false;
+
+        CameraMovement cameraMovement = GameObject.FindWithTag("MainCamera").GetComponent<CameraMovement>();
+        cameraMovement.additionalYIncrease = 0;
     }
 }
