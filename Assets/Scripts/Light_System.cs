@@ -18,7 +18,7 @@ public class Light_System : MonoBehaviour
 
     void Start()
     {
-        toggleLight(false);
+        toggleLight(true);
         lightBar = this.gameObject;
     }
 
