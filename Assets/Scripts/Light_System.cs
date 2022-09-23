@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D.IK;
 
 public class Light_System : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Light_System : MonoBehaviour
 
     private GameObject lightBar;
 
-    private float lightBarMaxSize = 14.8f;
+    private float lightBarMaxSize;
     [SerializeField] private float currentLightBarPercent = 0f;
     public float  lightBarGrowSpeed = 0.0005f;
     public float lightBarDecaySpeed = 0.001f;
@@ -20,6 +21,7 @@ public class Light_System : MonoBehaviour
     {
         toggleLight(true);
         lightBar = this.gameObject;
+        lightBarMaxSize = lightBar.transform.localScale.y;
     }
 
     

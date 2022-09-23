@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     public GameObject player;
-    private float timeOffset = 3;
     private float yPosOffset = 2;
     private float bottomLimit;
 
