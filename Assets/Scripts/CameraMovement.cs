@@ -60,7 +60,7 @@ public class CameraMovement : MonoBehaviour
         // Scroll up
         if (move == true)
         {
-            transform.Translate(0, .05f, 0);
+            transform.Translate(0, .04f, 0);
         }
         
 
